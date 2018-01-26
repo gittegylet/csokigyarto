@@ -13,9 +13,9 @@ namespace csoki
         // Az osztálynak három adattagja legyen: egy string-ben tároljuk a gyártott csoki fajtáját, egy string
         // tömbben a felhasznált alapanyagokat, egy szám változóban pedig a kakaótartalmat. ->
 
-        protected string csokiFajta;
-        protected string[] alapAnyagok;
-        protected double kakaoTartalom;
+        private string csokiFajta;
+        private string[] alapAnyagok;
+        private double kakaoTartalom;
 
         //Megjegyzés: eredetileg külön adattagot hoztam létre, a már meglévő Etelgyar-interfész helyes implementációja helyett!!
         //protected bool megfeleloMinoseg;
