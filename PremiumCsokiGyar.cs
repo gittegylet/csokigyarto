@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace csoki
 {
-    // Írj egy PremiumCsokiGyar osztályt, amely a Csokigyar osztály leszármazottja, belőle viszont 
-    // nem származhat további osztály. (-> ennél nem tudom, melyik módosító kellett volna a class-hoz!?  <HIBA4>) ->
-    class PremiumCsokiGyar : Csokigyar
+    // 3. Írj egy PremiumCsokiGyar osztályt, amely a Csokigyar osztály leszármazottja, belőle viszont 
+    // nem származhat további osztály. (-> ennél eredetileg kimaradt a sealed módosító, ami lezárja az öröklési láncot!  <HIBA4>) ->
+    sealed class PremiumCsokiGyar : Csokigyar
     {
         //Megjegyzés:  az alábbi részben az ősosztály (Csokigyar) paraméteres konstruktorát hívjuk meg,
         //mely során az új konstruktorunk által "kezelt" paraméterek is átadódnak az ős-konstruktornak.
@@ -46,7 +46,7 @@ namespace csoki
         // Ennek az osztálynak az esetében a megfelelő minőség meghatározásáért felelős metódus csak 80%-ot meghaladó 
         // kakaótartalom esetén adjon vissza igaz értéket! ->  (A FENTI ROSSZ MEGOLDÁS HELYETT ÍGY KELLETT VOLNA!!)
 
-        public bool megfeleloMinoseg
+        public override bool megfeleloMinoseg
         {
 
             get

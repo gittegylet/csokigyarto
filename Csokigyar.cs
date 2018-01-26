@@ -70,7 +70,7 @@ namespace csoki
 
         //Megjegyzés:  ez lett volna a helyes implementáció!! <HIBA2>
 
-        public bool megfeleloMinoseg
+        public virtual bool megfeleloMinoseg
         {
 
             // Ha a kakaótartalom nagyobb 50%-nál, akkor igazzal tér vissza, ha 0% és 50% közötti, akkor
