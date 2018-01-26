@@ -8,6 +8,7 @@ using System.IO;
 
 namespace csoki
 {
+    // 4. Írj egy futtatható osztályt, mely megnyit egy „input.txt” nevű fájlt! ->
     class csokiFuttat
     {
 
@@ -156,6 +157,7 @@ namespace csoki
 
             }
 
+            // A fájl első sora tartalmazza azt, hogy hány további sor van a fájlban. ->
             int sorok = int.Parse(sr.ReadLine());
 
 
@@ -168,9 +170,12 @@ namespace csoki
 
                 try
                 {
+                    // A további sorok pontosvesszővel elválasztott stringeket tartalmaznak: az első elem a csoki fajtáját, 
+                    // a második a kakaótartalmát (ez egy szám), a további elemek pedig az alapanyagokat. -->
 
                     string[] adatok = sr.ReadLine().Split(';');
 
+                    // A sor végén opcionálisan álló prémium string jelzi, ha az adott objektum prémium típusú. ->
                     bool premiumCsoki = adatok[adatok.Length - 1].ToLower() == "prémium";
 
                     string csokiFajta = adatok[0];
@@ -191,6 +196,9 @@ namespace csoki
                         alapAnyagok[j] = adatok[j + 2];
 
                     }
+                    
+                    // Dolgozd fel a sorokat, és hozd létre a megadott számú Csokigyar vagy PremiumCsokigyar objektumokat. ->
+                    // (MEGJEGYZÉS, EZT VÉGZI EL AZ IMÉNTI CIKLUSUNK!!! ;)) 
 
                     if (premiumCsoki) csokiLista.Add(new PremiumCsokiGyar(csokiFajta, alapAnyagok, kakaoTartalom));
                     else csokiLista.Add(new Csokigyar(csokiFajta, alapAnyagok, kakaoTartalom));
@@ -210,14 +218,22 @@ namespace csoki
 
             }
 
+
+            // Ezután sorban írasd ki a standard outputra az egyes objektumok toString-jét ->
             
+            // ...A ki-, bemeneti és más hibákat kapd el, és írj ki valamilyen
+            // tájékoztató hibaüzenetet!  --> Ehhez kellettek a try-catch blokkok!!
+
             try
             {
                 csokiLista.ForEach(c => {
 
                     string message = c.ToString();
 
-                    if (!c.MegfeleloMinoseg) message += " Rossz minőségű!";
+                    // valamint a megfeleloMinoseg metódus segítségével azt, hogy jó vagy rossz minőségű csokit gyártanak-e, 
+                    // hibadobás esetén pedig a „Nem igazi csoki!” szöveget. ->
+
+                    if (!c.megfeleloMinoseg) message += " Rossz minőségű!";
                     else message += " JÓ minőségű!";
 
                     Console.WriteLine(message);
